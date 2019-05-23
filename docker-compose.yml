@@ -18,9 +18,14 @@ services:
       - db
     volumes:
       - ./src:/src
+    environment:
+      - SMUGGLER_DJANGO_SECRET_KEY=${SMUGGLER_DJANGO_SECRET_KEY}
+      - SMUGGLER_DJANGO_DEBUG=${SMUGGLER_DJANGO_DEBUG}
+      - SMUGGLER_DJANGO_GEOPOSITION_GOOGLE_MAPS_API_KEY=${SMUGGLER_DJANGO_GEOPOSITION_GOOGLE_MAPS_API_KEY}
     expose:
       - "8000"
 
   db:
     image: postgres:latest
     container_name: ps01
+
